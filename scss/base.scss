@@ -8,6 +8,7 @@ body {
 	font-family: $font_sanserif;
 	font-size: $font_size;
 	word-wrap: break-word;
+	overflow-x: hidden;
 }
 
 section {

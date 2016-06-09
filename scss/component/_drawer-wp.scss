@@ -1,10 +1,12 @@
 @charset "utf-8";
 @import "../_parameter";
-$drawer_item_width: 140px;
+$drawer_item_width: 200px;
 $drawer_item_height: 44px;
-$col_default_position: 150px;
+$col_default_position: $drawer_item_width+20px;
 $row_default_position: 60px;
 $drawer_breakpoint: $sp;
+$drawer_background_color: #FFF;
+
 // common
 .drawer-btn {
 	padding: 10px 0;
@@ -14,16 +16,7 @@ $drawer_breakpoint: $sp;
 	z-index: 1000;
 }
 
-.drawer-cat {
-	height: $drawer_item_height;
-	width: $drawer_item_width;
-}
 
-.drawer-item-container {
-	display: block;
-	width: 100%;
-	min-height: $drawer_item_height;
-}
 
 // drawer-left
 .drawer-left {
@@ -40,6 +33,8 @@ $drawer_breakpoint: $sp;
 	width: $drawer_item_width;
 	left: -#{$col_default_position};
 	top: $drawer_item_height;
+	max-height: 80vh;
+	overflow-y: scroll;
 	
 	&.visible {
 		left: 0;
@@ -49,20 +44,21 @@ $drawer_breakpoint: $sp;
 		position: relative;
 		width: 100%;
 		z-index: 1000;
-	}
-	
-	>li>ul>li {
-		width: $drawer_item_width;
 		min-height: $drawer_item_height;
-		position: relative;
-		left: -#{$col_default_position};
-		top: -#{$drawer_item_height};
-		z-index: 1000;
+		width: $drawer_item_width;
+		background-color: $drawer_background_color;
+		border-bottom: 1px solid #DDD;
+		line-height: 1.1;
+		text-align: left;
+		
+		> a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+		}
 	}
-	
-	.visible2 >ul>li {
-		left: $drawer_item_width;
-	}
+
 }
 
 // drawer-right
@@ -93,19 +89,12 @@ $drawer_breakpoint: $sp;
 		position: relative;
 		right: -#{$col_default_position};
 		width: 100%;
-	}
-	
-	>li>ul>li {
+		height: $drawer_item_height;
 		width: $drawer_item_width;
-		min-height: $drawer_item_height;
-		position: relative;
-		right: -#{$col_default_position};
-		top: -#{$drawer_item_height};
+		background-color: $drawer_background_color;
+		border-bottom: 1px solid #DDD;
 	}
 	
-	.visible2 >ul>li {
-		right: $drawer_item_width;
-	}
 }
 
 // drawer-top
@@ -114,38 +103,31 @@ $drawer_breakpoint: $sp;
 	}
 	
 .drawer-top >ul {
-	position: absolute;
+	position: static;
 	left: 0;
 	top: 0;
 	width: 100%;
-	display: table;
-	table-layout: fixed;
+	overflow-y: auto;
 
 	> li {
-		display: table-cell;
+		display: flex;
 		text-align: center;
+		width: 100%;
 		position: relative;
-	}
-
-	> li>ul {
-		position: absolute;
-		bottom: 100%;
+		border-right: 1px solid #DDD;
+		>a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
+		}
 	}
 
 	.visible >li>ul {
 		top: 0;
 	}
 
-	>li>ul>li {
-		text-align: left;
-		width: 100%;
-		position: static;
-		top: 0;
-		left: 0;
-	}
-	.visible2 >li>ul {
-		top: 100%;
-	}
 }
 
 // .drawer-wide
@@ -165,34 +147,22 @@ $drawer_breakpoint: $sp;
 		left: 0;
 		top: 0;
 		width: 100%;
-		display: table;
-		table-layout: fixed;
+		overflow-y: auto;
 		
 		> li {
-			display: table-cell;
+			display: flex;
 			text-align: center;
-			position: relative;
-		}
-		
-		>li>ul {
-			position: absolute;
-			bottom: 100%;
-		}
-		
-		.visible >li>ul {
-			top: 0;
-		}
-		
-		>li>ul>li {
-			text-align: left;
 			width: 100%;
-			position: static;
-			top: 0;
-			left: 0;
-		}
-		.visible2 >li>ul {
-			top: 100%;
-		}
+			position: relative;
+			border-right: 1px solid #DDD;
+			>a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+				width: 100%;
+			}
+		}		
 	}
 	
 }

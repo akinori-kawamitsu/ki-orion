@@ -11,8 +11,15 @@
 
 </head>
 <body>
-<header class="header-fix" id="header">
+<header class="header" id="header">
 	<div class="container">
-		<?php get_template_part('top-gnav');?>
+		<div class="float">
+			<div class="col-sp-9 col-tab-11">
+			<?php get_template_part('top-gnav');?>
+			</div>
+			<div class="col-sp-3 col-tab-1">
+				logo
+			</div>
+		</div>
 	</div>
 </header>

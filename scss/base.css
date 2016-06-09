@@ -7,6 +7,7 @@ body {
   font-family: "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 16px;
   word-wrap: break-word;
+  overflow-x: hidden;
 }
 
 section {
@@ -377,3 +378,5 @@ nav, nav ul, nav li {
 .mb-60 {
   margin-bottom: 60px;
 }
+
+/*# sourceMappingURL=base.css.map */
