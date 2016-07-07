@@ -8,10 +8,6 @@
 	text-align: center;
 	display: block;
 }
-#wpadminbar {
-	max-height: 2px;
-	overflow: hidden;
-	:hover {
-		max-height: auto;
-	}
+header a:hover {
+	border-bottom: none;
 }

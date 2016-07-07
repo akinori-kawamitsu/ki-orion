@@ -276,6 +276,9 @@ header {
   position: relative;
   border-right: 1px solid #DDD;
 }
+.drawer-top > ul > lifirst-child {
+  border-left: 1px solid #DDD;
+}
 .drawer-top > ul > li > a {
   display: flex;
   align-items: center;
@@ -310,6 +313,9 @@ header {
     position: relative;
     border-right: 1px solid #DDD;
   }
+  .drawer-wide-top > ul > li:first-child {
+    border-left: 1px solid #DDD;
+  }
   .drawer-wide-top > ul > li > a {
     display: flex;
     align-items: center;
@@ -325,12 +331,8 @@ header {
   display: block;
 }
 
-#wpadminbar {
-  max-height: 2px;
-  overflow: hidden;
-}
-#wpadminbar :hover {
-  max-height: auto;
+header a:hover {
+  border-bottom: none;
 }
 
 /*# sourceMappingURL=component.css.map */

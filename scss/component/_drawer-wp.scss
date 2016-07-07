@@ -115,6 +115,9 @@ $drawer_background_color: #FFF;
 		width: 100%;
 		position: relative;
 		border-right: 1px solid #DDD;
+		&first-child {
+			border-left: 1px solid #DDD;
+		}
 		>a {
 			display: flex;
 			align-items: center;
@@ -155,6 +158,9 @@ $drawer_background_color: #FFF;
 			width: 100%;
 			position: relative;
 			border-right: 1px solid #DDD;
+			&:first-child {
+				border-left: 1px solid #DDD;
+			}
 			>a {
 				display: flex;
 				align-items: center;

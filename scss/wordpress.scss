@@ -51,3 +51,20 @@
 }
 .linkcat{
 }
+// must class
+.sticky {
+	display: block;
+}
+.gallery-caption {
+	font-size: 87.5%;
+}
+.bypostauthor {
+	color: $color_text;
+}
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}

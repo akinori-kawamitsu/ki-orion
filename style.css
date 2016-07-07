@@ -2,13 +2,13 @@
 /*
 Theme name: ki-orion
 Theme URI: https://github.com/akinori-kawamitsu/ki-orion
-Author: Komitsuboshi interface
+Author: akinori kawamitsu
 Author URI: http://komitsuboshi.com
 Description: 
 Version: 1.0
 License: MIT License
 License URI: https://opensource.org/licenses/MIT
-Tags: simple
+Text Domain: ki-orion
 */
 /* Reset CSS */
 /*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css
@@ -676,7 +676,7 @@ nav, nav ul, nav li {
 
 .caption-text {
   display: inline;
-  font-size: 14px;
+  font-size: 87.5%;
 }
 
 .table {
@@ -1903,6 +1903,9 @@ header {
   position: relative;
   border-right: 1px solid #DDD;
 }
+.drawer-top > ul > lifirst-child {
+  border-left: 1px solid #DDD;
+}
 .drawer-top > ul > li > a {
   display: flex;
   align-items: center;
@@ -1937,6 +1940,9 @@ header {
     position: relative;
     border-right: 1px solid #DDD;
   }
+  .drawer-wide-top > ul > li:first-child {
+    border-left: 1px solid #DDD;
+  }
   .drawer-wide-top > ul > li > a {
     display: flex;
     align-items: center;
@@ -1952,12 +1958,8 @@ header {
   display: block;
 }
 
-#wpadminbar {
-  max-height: 2px;
-  overflow: hidden;
-}
-#wpadminbar :hover {
-  max-height: auto;
+header a:hover {
+  border-bottom: none;
 }
 
 .wp-caption p.wp-caption-text {
@@ -1985,6 +1987,26 @@ header {
   margin: 5px auto 0;
   padding: 0;
   border: 0 none;
+}
+
+.sticky {
+  display: block;
+}
+
+.gallery-caption {
+  font-size: 87.5%;
+}
+
+.bypostauthor {
+  color: #333;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
