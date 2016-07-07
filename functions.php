@@ -1,4 +1,5 @@
 <?php
+// Script and css in head
 function ki_orion_script() {
 	wp_enqueue_style('ki-orion-style', get_stylesheet_uri(), array(), null, 'all');	
 	wp_enqueue_script( 'jquery' );
@@ -7,11 +8,11 @@ function ki_orion_script() {
 }
 add_action('wp_enqueue_scripts','ki_orion_script');
 
-
+// Custom menu
 function action_navigation_menu_setup(){
-	register_nav_menus( array('gnav' => 'グローバルナビゲーション' ,
-							  'snav' => 'サブナビゲーション',
-							  'fnav' => 'フッターナビゲーション'));
+	register_nav_menus( array('gnav' => 'Header navigation' ,
+							  'snav' => 'Sub navigation',
+							  'fnav' => 'Footer navigation'));
 }
 add_action('after_setup_theme', 'action_navigation_menu_setup');
 
@@ -24,35 +25,53 @@ function my_css_attributes_filter($var) {
 }
 
 // Enable widget
-if (function_exists('register_sidebar')) {
- 
+function ki_widgets_init() {
  register_sidebar(array(
- 'name' => 'サイドバー1',
+ 'name' => 'sidebar1',
  'id' => 'sidebar1',
- 'description' => '3カラムタイプの場合、左サイドバーに入れる項目をここに配置します。',
+ 'description' => 'sidebar first menu',
  'before_title' => '<h3 class="side-itle">',
  'after_title' => '</h3>'
  ));
  
  register_sidebar(array(
- 'name' => 'サイドバー2',
+ 'name' => 'sidebar2',
  'id' => 'sidebar2',
- 'description' => '右サイドバーに入れる項目をここに配置します。',
+ 'description' => 'sidebar second menu',
  'before_title' => '<h3 class="side-itle">',
  'after_title' => '</h3>'
  ));
- 
 }
+add_action('widgets_init','ki_widgets_init');
 
 // Enable thumbnail image 
 add_theme_support( 'post-thumbnails' );
+
 // Enable editor style
 add_editor_style('editor-style.css');
-// Enable jQuery
 
+// title tag
+add_theme_support( 'title-tag' );
 
+/* Enable custom header
+add_theme_support(array(
+	'default-image'			=> '',
+	'random-default'		=> false,
+	'width'					=> 1920,
+	'height'				=> 500,
+	'flex-height'			=> true,
+	'flex-width'			=> true,
+	'default-text-color'	=> '',
+	'header-text'			=> true,
+	'uploads'				=> true,
+	'wp-head-callback'		=> '',
+	'admin-head-callback'	=> '',
+	'admin-preview-callback'=> '',
+));
+add_theme_support( 'custom-header', $defaults );
+*/
 
-//　カテゴリーのリスト
+//　The list of categories
 function ki_catlist() {
 	$kiexcat = get_category_by_slug('top') -> term_id;
 	echo '<ul class="sitemap">';
@@ -65,15 +84,7 @@ function ki_catlist() {
 	echo '</ul>';
 }
 
-// taglist
-function ki_taglist(){
-	wp_tag_cloud(array(
-					   'format' => 'list',
-					   'smallest' => 13,
-					   'largest' => 13,
-					));
-}
-add_shortcode('taglist','ki_taglist');
+// Title tag
 
 /*
 	アーカイブページで現在のカテゴリー・タグ・タームを取得する
@@ -107,11 +118,26 @@ echo $term->description; //説明文を表示
 echo $term->count; //投稿数を表示
 */
 
-/*ビジュアルリッチエディタにボタン追加*/
-function ilc_mce_buttons($buttons){
-array_push($buttons, "backcolor", "copy", "cut", "paste", "fontsizeselect", "cleanup");
-return $buttons;
+// Call page content by slug.
+function ki_page_content($pageslug) {
+	$kipage_query = new WP_Query(array('pagename' => $pageslug ));
+	if ($kipage_query -> have_posts()):  $kipage_query -> the_post();
+			the_content();
+		endif;
+    wp_reset_postdata();
 }
-add_filter("mce_buttons", "ilc_mce_buttons");
 
+// Call page link by slug.
+function ki_page_link($page_slug) {
+	$kipage_query = new WP_Query(array('pagename' => $page_slug ));
+	if ($kipage_query -> have_posts()):  $kipage_query -> the_post();
+			the_permalink();
+		endif;
+	wp_reset_postdata();
+}
 
+// Call category archive link by category slug.
+function ki_cat_link($cat_slug) {
+	$kicat_query = get_category_by_slug($cat_slug);
+	echo get_category_link($kicat_query->term_id); 
+}
