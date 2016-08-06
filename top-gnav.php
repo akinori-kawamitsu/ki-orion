@@ -15,7 +15,7 @@ $gnav = array(
 	'depth'           => 0,
 	'walker'          => '',
 	'theme_location'  => 'gnav',
-	'items_wrap'      => '<div class="btn-burg toggle"></div><ul id="%1$s" class="%2$s flex-tab-eq">%3$s</ul>',
+	'items_wrap'      => '<div class="btn-burg wp-toggle"></div><ul id="%1$s" class="%2$s flex-tab-eq">%3$s</ul>',
 );
 wp_nav_menu( $gnav );
 ?>

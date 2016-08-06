@@ -1,19 +1,12 @@
 @charset "utf-8";
 @import "_parameter";
 /* style base */
-body {
-	margin: 0;
-	padding: 0;
-	line-height: $line_height;
-	font-family: $font_sanserif;
-	font-size: $font_size;
-	word-wrap: break-word;
-	overflow-x: hidden;
+section {
+	padding-top: 10px;
 }
 
-section {
-	clear: both;
-	padding-top: 10px;
+main::after {
+	@include clearfix;
 }
 
 code {
@@ -21,44 +14,6 @@ code {
 	font-size: $font_small;
 	font-family: $font_code;
 	white-space: pre;
-}
-
-// h1 to h6 common style
-%headingbase {
-	margin: 0;
-	padding: 0;
-	clear: both;
-}
-
-@for $i from 1 through 6 {
-	h#{$i} {
-		@extend %headingbase;
-	}
-}
-
-
-h1 {
-	font-size: 2.6rem;
-}
-
-h2 {
-	font-size: 2rem;
-}
-
-h3 {
-	font-size: 1.6rem;
-}
-
-h4 {
-	font-size: 1.3rem;
-}
-
-h5 {
-	font-size: 1rem;
-}
-
-h6 {
-	font-size: 1rem;
 }
 
 blockquote {
@@ -276,7 +231,7 @@ nav, nav ul, nav li {
 
 .caption-text {
 	display: inline;
-	font-size: 87.5%;
+   font-size: 14px;
 }
 
 .table {
@@ -326,7 +281,6 @@ nav, nav ul, nav li {
 	}
 }
 
-
 $mgn: 5;
 @while $mgn <=20 {
 	.mt#{$mgn} {
@@ -337,6 +291,7 @@ $mgn: 5;
 	}
 	$mgn: $mgn + 5;
 }
+	
 $mgnl: 30;
 @while $mgnl <=60 {
 	.mt-#{$mgnl} {

@@ -36,7 +36,7 @@ $drawer_background_color: #FFF;
 	max-height: 80vh;
 	overflow-y: scroll;
 	
-	&.visible {
+	&.dep-visible {
 		left: 0;
 	}
 	
@@ -70,7 +70,7 @@ $drawer_background_color: #FFF;
 .drawer-right .btn-burg {
 	position: absolute;
 	right: 0;
-	&.visible {
+	&.dep-visible {
 		transform: rotate(180deg);
 	}
 }
@@ -81,7 +81,7 @@ $drawer_background_color: #FFF;
 	right: -#{$col_default_position};
 	top: $drawer_item_height;
 	
-	&.visible {
+	&.dep-visible {
 		right: 0;
 	}
 	
@@ -127,7 +127,7 @@ $drawer_background_color: #FFF;
 		}
 	}
 
-	.visible >li>ul {
+	.dep-visible >li>ul {
 		top: 0;
 	}
 

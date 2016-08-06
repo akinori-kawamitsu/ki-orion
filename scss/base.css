@@ -1,18 +1,14 @@
 @charset "UTF-8";
 /* style base */
-body {
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  font-family: "游ゴシック", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  font-size: 16px;
-  word-wrap: break-word;
-  overflow-x: hidden;
+section {
+  padding-top: 10px;
 }
 
-section {
+main::after {
   clear: both;
-  padding-top: 10px;
+  content: " ";
+  display: block;
+  line-height: 0;
 }
 
 code {
@@ -20,36 +16,6 @@ code {
   font-size: 14px;
   font-family: Consolas, "Courier New", Courier, Monaco, monospace, "Osaka－等幅", Osaka-mono, "ＭＳ ゴシック", "MS Gothic";
   white-space: pre;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-  clear: both;
-}
-
-h1 {
-  font-size: 2.6rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.6rem;
-}
-
-h4 {
-  font-size: 1.3rem;
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 1rem;
 }
 
 blockquote {
@@ -261,7 +227,7 @@ nav, nav ul, nav li {
 
 .caption-text {
   display: inline;
-  font-size: 87.5%;
+  font-size: 14px;
 }
 
 .table {

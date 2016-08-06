@@ -7,6 +7,7 @@
 		<?php the_title('<h2 class="post-title">','</h2>');?>
 		<div <?php post_class();?>><?php the_content() ;?></div>
 		<?php endwhile; ?>
+
 	<?php endif; ?>
 </main>
 </div>
