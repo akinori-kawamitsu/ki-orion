@@ -1,4 +1,6 @@
 <?php
+load_theme_textdomain( 'ki-orion', get_template_directory() . '/languages/' );
+
 // Script and css in head
 function ki_orion_script() {
 	wp_enqueue_style('ki-orion-style', get_stylesheet_uri(), array(), null, 'all');	
@@ -50,8 +52,14 @@ add_theme_support( 'post-thumbnails' );
 // Enable editor style
 add_editor_style('editor-style.css');
 
-// title tag
+// Enable title tag
 add_theme_support( 'title-tag' );
+
+// Enable rss feed links
+add_theme_support( 'automatic-feed-links' );
+
+// Enable using html5 at forms
+add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 /* Enable custom header
 add_theme_support(array(
@@ -71,6 +79,9 @@ add_theme_support(array(
 add_theme_support( 'custom-header', $defaults );
 */
 
+// Setting content width
+if ( ! isset( $content_width ) ) $content_width = 600;
+
 //　The list of categories
 function ki_catlist() {
 	$kiexcat = get_category_by_slug('top') -> term_id;
@@ -87,7 +98,7 @@ function ki_catlist() {
 // Title tag
 
 /*
-	アーカイブページで現在のカテゴリー・タグ・タームを取得する
+	Get the current category or term in archive page.
 */
 function get_current_term(){
 	$id;
@@ -107,15 +118,17 @@ function get_current_term(){
 	return get_term($id,$tax_slug);
 }
 /*
-  参照： http://blog.ks-product.com/wrodpress-get-current-term/
-  
-あとはアーカイブ（category.php、tag.phpなど）テンプレートの任意の場所に以下のソースコードを記述
+  via： http://blog.ks-product.com/wrodpress-get-current-term/
+
+And write codes and edit as follow in template of archives (category.php, tag.php). 
+
 $term = get_current_term(); 
-//以下は必要に応じて記述
-echo $term->name; //名前を表示
-echo $term->slug; //スラッグを表示
-echo $term->description; //説明文を表示
-echo $term->count; //投稿数を表示
+
+and write follow codes when you want.
+echo $term->name; 
+echo $term->slug; 
+echo $term->description; 
+echo $term->count; 
 */
 
 // Call page content by slug.
@@ -141,3 +154,5 @@ function ki_cat_link($cat_slug) {
 	$kicat_query = get_category_by_slug($cat_slug);
 	echo get_category_link($kicat_query->term_id); 
 }
+
+// Theme customize admin menu
