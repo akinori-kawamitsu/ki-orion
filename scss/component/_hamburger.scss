@@ -1,7 +1,7 @@
 @charset "utf-8";
-@import "../_parameter";
+@import "_parameter";
 //ボタンのサイズ,枠線の色,および角丸のサイズ
-$burg_size: 44px;
+$burg_size: $header_height;
 $burg_border_color: #66F;
 $burg_border_radius: 5px;
 //ハンバーガーアイコンの線の太さと色
