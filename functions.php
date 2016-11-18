@@ -155,4 +155,139 @@ function ki_cat_link($cat_slug) {
 	echo get_category_link($kicat_query->term_id); 
 }
 
+/* Breadcrumb navigation */
+function ki_breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcrumb")){
+	global $post;
+	$text_home = esc_html__('home','ki-orion-pack');
+	$text_year = esc_html__('year','ki-orion-pack');
+	$text_month = esc_html__('month','ki-orion-pack');
+	$text_day = esc_html__('day','ki-orion-pack');
+	
+	$str ='';
+	if(!is_home()&&!is_admin()){
+		$tagAttribute = '';
+		foreach($divOption as $attrName => $attrValue){
+			$tagAttribute .= sprintf(' %s="%s"', $attrName, $attrValue);
+		}
+		
+		$str.= '<nav id="breadcrumb" itemprop="breadcrumb">';
+		$str.= '<ul class="breadcrumb">';
+		$str.= '<li><a href="'. home_url() .'/">'.$text_home.'</a></li>';
+		
+		if(is_category()) {
+			$cat = get_queried_object();
+			if($cat -> parent != 0){
+				$ancestors = array_reverse(get_ancestors( $cat -> cat_ID, 'category' ));
+				foreach($ancestors as $ancestor){
+					$str.='<li><a href="'. get_category_link($ancestor) .'">'. get_cat_name($ancestor) .'</a></li>';
+				}
+			}
+			$str.='<li>'. $cat -> name . '</li>';
+		}
+		
+		elseif(is_single()){	/* post */
+			$categories = get_the_category($post->ID);
+			$cat = $categories[0];
+			if($cat -> parent != 0){
+				$ancestors = array_reverse(get_ancestors( $cat -> cat_ID, 'category' ));
+				foreach($ancestors as $ancestor){
+					$str.='<li><a href="'. get_category_link($ancestor).'">'. get_cat_name($ancestor). '</a></li>';
+				}
+			}
+			$str.='<li><a href="'. get_category_link($cat -> term_id). '">'. $cat-> cat_name . '</a></li>';
+			$str.= '<li>'. $post -> post_title .'</li>';
+		}
+		
+		elseif(is_page()){
+			if($post -> post_parent != 0 ){
+				$ancestors = array_reverse(get_post_ancestors( $post->ID ));
+				foreach($ancestors as $ancestor){
+					$str.='<li><a href="'. get_permalink($ancestor).'">'. get_the_title($ancestor) .'</a></li>';
+				}
+			}
+			$str.= '<li>'. $post -> post_title .'</li>';
+		}
+		
+		elseif(is_date()){
+		
+			if(get_query_var('day') != 0){
+				$str.='<li><a href="'. get_year_link(get_query_var('year')). '">' . get_query_var('year'). '年</a></li>';
+				$str.='<li><a href="'. get_month_link(get_query_var('year'), get_query_var('monthnum')). '">'. get_query_var('monthnum') .'月</a></li>';
+				$str.='<li>'. get_query_var('day'). '日</li>';
+			}
+			elseif(get_query_var('monthnum') != 0){
+				$str.='<li><a href="'. get_year_link(get_query_var('year')) .'">'. get_query_var('year') .'年</a></li>';
+				$str.='<li>'. get_query_var('monthnum'). '月</li>';
+			}
+			else {
+				$str.='<li>'. get_query_var('year') .'年</li>';
+			}
+		}
+		
+		elseif(is_search()) {
+			$str.='<li>キーワード「'. get_search_query() .'」で検索した結果</li>';
+		}
+		
+		elseif(is_author()){
+			$str .='<li>投稿者 : '. get_the_author_meta('display_name', get_query_var('author')).'の過去記事</li>';
+		}
+		
+		elseif(is_tag()){
+			$str.='<li>タグ : '. single_tag_title( '' , false ). '</li>';
+		}
+		
+		elseif(is_attachment()){
+			$str.= '<li>'. $post -> post_title .'</li>';
+		}
+		
+		elseif(is_404()){
+			$str.='<li>ページが見つかりません。</li>';
+		}
+		else{
+			$str.='<li>'. wp_title('', true) .'</li>';
+		}
+		$str.='</ul>';
+		$str.='</nav>';
+	}
+	echo $str;
+}
+
+//　Page navigation
+function ki_page_navigation() {
+    global $wp_rewrite;
+    global $wp_query;
+    global $paged;
+    $paginate_base = get_pagenum_link(1);
+
+    if(($wp_query->max_num_pages) > 1):
+            if (strpos($paginate_base, '?') || ! $wp_rewrite->using_permalinks()) {
+                    $paginate_format = '';
+                    $paginate_base = add_query_arg('paged', '%#%');
+            } else {
+                    $paginate_format = (substr($paginate_base, -1 ,1) == '/' ? '' : '/') .
+                    user_trailingslashit('page/%#%/', 'paged');;
+                    $paginate_base .= '%_%';
+            }
+            $result = paginate_links( array(
+                    'base' => $paginate_base,
+                    'format' => $paginate_format,
+                    'total' => $wp_query->max_num_pages,
+                    'mid_size' => 3,
+                    'current' => ($paged ? $paged : 1),
+            ));
+            echo '<p class="pagenation">'."\n".$result."</p>\n";
+    endif;
+}
+
+// taglist
+function ki_taglist(){
+	wp_tag_cloud(array(
+					   'format' => 'list',
+					   'smallest' => 13,
+					   'largest' => 13,
+					));
+}
+add_shortcode('taglist','ki_taglist');
+
+
 // Theme customize admin menu
