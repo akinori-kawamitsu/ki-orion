@@ -11,6 +11,7 @@ Now developing...
 作り方は基本的にBootstrapと同じ。グリッドのコンテナ内にカラムを入れます。  
 
 | Bootstrap | ki-orion | 備考 |
+| ------------- |:-------------:| -----:|
 | row | float, float-nm | 子要素をfloatでレイアウト。子要素の両側のマージン分コンテナを広げます。-nmはコンテナの拡張無し。 |
 | - | flex, flex-r, flex-nm, flex-nmr | 子要素をflexboxのstrechでレイアウト。-rはrow-reverse（右詰め）になります。 |
 | - | flex-sp-eq | 子要素を等幅分割 |
@@ -24,6 +25,7 @@ Now developing...
 
 ## その他のクラス名と役割
 | container | 最大幅960px、両側にマージン |
+| ------------- |:-------------:| -----:|
 | clear | clear:both;を要素に設定 |
 | clearfix | 要素にclearfixを設定 |
 | list-style-none | リストの行頭記号と段落ちをなくします。 |
