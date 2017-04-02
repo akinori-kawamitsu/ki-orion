@@ -20,7 +20,7 @@ Now developing...
 | col-xs-* | col-sp-*, col-sp-*r | *にはグリッド数を入れます。576px以下にも適用。-*rはfloat:right;がかかっていて右詰になります。（以下同じ） |
 | col-sm-* | col-tab-*, col-tab-*r | 577px～768pxに適用。576px以下では1カラムになります。 |
 | col-md-* | col-pc-*, col-pc-*r | 769px以上に適用。768px以下では1カラムになります。 |
-| col-lg-*, col-sl-* | 対応無し |
+| col-lg-*, col-xl-* | 対応無し |
 | 対応無し | col-*, col-*r | 769px以上に適用。577px～768pxでは2カラムに、576px以下では1カラムになります。 |
 
 ## その他のクラス名と役割
