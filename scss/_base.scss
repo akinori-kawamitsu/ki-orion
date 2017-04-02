@@ -73,6 +73,7 @@ img {
 .aligncenter {
 	display: block;
 	margin: 0 auto;
+	text-align: center;
 }
 
 .alignleft {
@@ -187,7 +188,7 @@ nav, nav ul, nav li {
 	clear: both;
 }
 
-.clearfix {
+.clearfix::after {
 	@include clearfix;
 }
 
@@ -196,19 +197,19 @@ nav, nav ul, nav li {
 	padding: 0;
 }
 
-.textleft {
+.text-left {
 	text-align: left;
 }
 
-.textright {
+.text-right {
 	text-align: right;
 }
 
-.textcenter {
+.text-center {
 	text-align: center;
 }
 
-.textjustyfy {
+.text-justyfy {
 	text-align: justify;
 }
 
@@ -249,44 +250,51 @@ nav, nav ul, nav li {
 .middle-item {
 	display: table-cell;
 	vertical-align: middle;
+	text-align: center;
 }
 // display control
-.tab, .pc {
+.tab, .pc, .tab-inline, pc-inline {
 	display: none;
 }
 .sp {
 	display: block;
 }
+.sp-inline {
+	display: inline-block;
+}
 @media screen and (min-width:$tab) {
-	.sp {
+	.sp, .sp-inline {
 		display: none;
 	}
 	.tab {
 		display: block;
 	}
-	.tab-none, .tab-none * {
-		display: none!important;
+	.tab-inline {
+		display: inline;
 	}
 }
 
 @media screen and (min-width:$pc) {
-	.tab {
+	.tab, .tab-inline {
 		display: none;
 	}
 	.pc {
 		display: block;
 	}
-	.pc-none, .pc-none * {
-		display: none!important;
+	.tab-none.pc {
+		display: block!important;
+	}
+	.pc-inline {
+		display: inline;
 	}
 }
 
 $mgn: 5;
 @while $mgn <=20 {
-	.mt#{$mgn} {
+	.mt-#{$mgn} {
 		margin-top: #{$mgn}px;
 	}
-	.mb#{$mgn} {
+	.mb-#{$mgn} {
 		margin-bottom: #{$mgn}px;
 	}
 	$mgn: $mgn + 5;

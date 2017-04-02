@@ -4,7 +4,7 @@ Theme URI: https://github.com/akinori-kawamitsu/ki-orion
 Author: akinori kawamitsu
 Author URI: http://komitsuboshi.com
 Description: 
-Version: 1.0
+Version: 0.2.0
 License: MIT License
 License URI: https://opensource.org/licenses/MIT
 Text Domain: ki-orion
@@ -16,11 +16,10 @@ Text Domain: ki-orion
 @import "scss/_grid.scss";
 
 @import "scss/component/_breadcrumb";
-@import "scss/component/_forms";
 @import "scss/component/_header-fix";
 @import "scss/component/_hamburger";
 @import "scss/component/_hamburger-text";
 @import "scss/component/_drawer-wp";
-@import "scss/component/_wpcustom";
+@import "scss/component/_embed";
 
 @import "scss/_wordpress.scss";

@@ -1,5 +1,9 @@
 <meta property="og:site_name" content="<?php bloginfo('name'); ?>" />
+<?php if( is_front_page() || is_home() ) :?>
 <meta property="og:type" content="website" />
+<?php else :?>
+<meta property="og:type" content="article" />
+<?php endif ;?>
 <meta property="og:url" content="<?php echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 <?php
 if (is_singular() && ! is_archive() && ! is_front_page() && ! is_home()){
