@@ -57,40 +57,40 @@
 
 @for $num from 1 through 4 {
 	// float settings
-	.col-#{$num}by5, .col-pc-#{$num}by5, .col-tab-#{$num}by5, .col-sp-#{$num}by5 {
+	.col-#{$num}-5, .col-pc-#{$num}-5, .col-tab-#{$num}-5, .col-sp-#{$num}-5 {
 		@extend %col_sp;
 	}
-	.col-#{$num}by5r, .col-pc-#{$num}by5r, .col-tab-#{$num}by5r, .col-sp-#{$num}by5r {
+	.col-#{$num}-5r, .col-pc-#{$num}-5r, .col-tab-#{$num}-5r, .col-sp-#{$num}-5r {
 		@extend %col_spr;
 	}
 	
 	// sp width settings
-	.col-#{$num}by5, .col-pc-#{$num}by5, .col-tab-#{$num}by5,
-	.col-#{$num}by5r, .col-pc-#{$num}by5r, .col-tab-#{$num}by5r {
+	.col-#{$num}-5, .col-pc-#{$num}-5, .col-tab-#{$num}-5,
+	.col-#{$num}-5r, .col-pc-#{$num}-5r, .col-tab-#{$num}-5r {
 			@extend %othersp;
 	}
-	.col-sp-#{$num}by5, .col-sp-#{$num}by5r {
+	.col-sp-#{$num}-5, .col-sp-#{$num}-5r {
 		width: calc(#{20*$num}% - #{2*$margin_sp_col});
 	}
 }
 
 @for $num from 1 through 6 {
 	// float settings
-	.col-#{$num}by7, .col-pc-#{$num}by7, .col-tab-#{$num}by7, .col-sp-#{$num}by7 {
+	.col-#{$num}-7, .col-pc-#{$num}-7, .col-tab-#{$num}-7, .col-sp-#{$num}-7 {
 		@extend %col_sp;
 	}
-	.col-#{$num}by7r, .col-pc-#{$num}by7r, .col-tab-#{$num}by7r, .col-sp-#{$num}by7r 
+	.col-#{$num}-7r, .col-pc-#{$num}-7r, .col-tab-#{$num}-7r, .col-sp-#{$num}-7r 
 	{
 		@extend %col_spr;
 	}
 	
 	// sp width settings
-	.col-#{$num}by7, .col-pc-#{$num}by7, .col-tab-#{$num}by7, .col-sp-#{$num}by7,
-	.col-#{$num}by7r, .col-pc-#{$num}by7r, .col-tab-#{$num}by7r, .col-sp-#{$num}by7r {
+	.col-#{$num}-7, .col-pc-#{$num}-7, .col-tab-#{$num}-7, .col-sp-#{$num}-7,
+	.col-#{$num}-7r, .col-pc-#{$num}-7r, .col-tab-#{$num}-7r, .col-sp-#{$num}-7r {
 		@extend %othersp;
 	}
 	
-	.col-sp-#{$num}by7, .col-sp-#{$num}by7r {
+	.col-sp-#{$num}-7, .col-sp-#{$num}-7r {
 		width: calc(#{(100*$num)/7}% - #{2*$margin_sp_col});
 	}
 }
@@ -157,52 +157,52 @@
 	
 	@for $num from 1 through 4 {
 		// margin settings
-		.col-#{$num}by5, .col-#{$num}by5r, 
-		.col-sp-#{$num}by5, .col-sp-#{$num}by5r, 
-		.col-tab-#{$num}by5, .col-tab-#{$num}by5r, 
-		.col-pc-#{$num}by5, .col-pc-#{$num}by5r {
+		.col-#{$num}-5, .col-#{$num}-5r, 
+		.col-sp-#{$num}-5, .col-sp-#{$num}-5r, 
+		.col-tab-#{$num}-5, .col-tab-#{$num}-5r, 
+		.col-pc-#{$num}-5, .col-pc-#{$num}-5r {
 			@extend %tabmargin;
 		}
 
 		// tab width settings
-		.col-#{$num}by5, .col-#{$num}by5r {
+		.col-#{$num}-5, .col-#{$num}-5r {
 			@extend %width_tabhalf;
 		}
-		.col-sp-#{$num}by5, .col-sp-#{$num}by5r {
+		.col-sp-#{$num}-5, .col-sp-#{$num}-5r {
 			width: calc(#{20*$num}% - #{2*$margin_tab_col});
 		}
 	}
 	@for $num from 1 through 4 {
-		.col-pc-#{$num}by5, .col-pc-#{$num}by5r {
+		.col-pc-#{$num}-5, .col-pc-#{$num}-5r {
 			@extend %width_tabfull;
 		}
-		.col-tab-#{$num}by5, .col-tab-#{$num}by5r {
+		.col-tab-#{$num}-5, .col-tab-#{$num}-5r {
 			width: calc(#{20*$num}% - #{2*$margin_tab_col});
 		}
 	}
 	
 	@for $num from 1 through 6 {
 		// margin settings
-		.col-#{$num}by7, .col-#{$num}by7r, 
-		.col-sp-#{$num}by7, .col-sp-#{$num}by7r, 
-		.col-tab-#{$num}by7, .col-tab-#{$num}by7r, 
-		.col-pc-#{$num}by7, .col-pc-#{$num}by7r {
+		.col-#{$num}-7, .col-#{$num}-7r, 
+		.col-sp-#{$num}-7, .col-sp-#{$num}-7r, 
+		.col-tab-#{$num}-7, .col-tab-#{$num}-7r, 
+		.col-pc-#{$num}-7, .col-pc-#{$num}-7r {
 			@extend %tabmargin;
 		}
 		
 		// tab width settings
-		.col-#{$num}by7, .col-#{$num}by7r {
+		.col-#{$num}-7, .col-#{$num}-7r {
 			@extend %width_tabhalf;
 		}
-		.col-sp-#{$num}by7, .col-sp-#{$num}by7r {
+		.col-sp-#{$num}-7, .col-sp-#{$num}-7r {
 			width: calc(#{(100*$num)/7}% - #{2*$margin_tab_col});
 		}
 	}
 	@for $num from 1 through 6 {
-		.col-pc-#{$num}by7, .col-pc-#{$num}by7r {
+		.col-pc-#{$num}-7, .col-pc-#{$num}-7r {
 			@extend %width_tabfull;
 		}
-		.col-tab-#{$num}by7, .col-tab-#{$num}by7r {
+		.col-tab-#{$num}-7, .col-tab-#{$num}-7r {
 			width: calc(#{(100*$num)/7}% - #{2*$margin_tab_col});
 		}
 	}
@@ -246,40 +246,40 @@
 	}
 	
 	@for $num from 1 through 4 {
-		.col-#{$num}by5, .col-#{$num}by5r, 
-		.col-sp-#{$num}by5, .col-sp-#{$num}by5r {
+		.col-#{$num}-5, .col-#{$num}-5r, 
+		.col-sp-#{$num}-5, .col-sp-#{$num}-5r {
 			@extend %pcmargin;
 			width: calc(#{20*$num}% - #{2*$margin_pc_col});
 		}
 	}
 	@for $num from 1 through 4 {
-		.col-tab-#{$num}by5, .col-tab-#{$num}by5r {
+		.col-tab-#{$num}-5, .col-tab-#{$num}-5r {
 			@extend %pcmargin;
 			width: calc(#{20*$num}% - #{2*$margin_pc_col});
 		} 
 	}
 	@for $num from 1 through 4 {
-		.col-pc-#{$num}by5, .col-pc-#{$num}by5r {
+		.col-pc-#{$num}-5, .col-pc-#{$num}-5r {
 			@extend %pcmargin;
 			width: calc(#{20*$num}% - #{2*$margin_pc_col});
 		}
 	}
 	
 	@for $num from 1 through 6 {
-		.col-#{$num}by7, .col-#{$num}by7r,
-		.col-sp-#{$num}by7, .col-sp-#{$num}by7r {
+		.col-#{$num}-7, .col-#{$num}-7r,
+		.col-sp-#{$num}-7, .col-sp-#{$num}-7r {
 			@extend %pcmargin;
 			width: calc(#{(100*$num)/7}% - #{2*$margin_pc_col});
 		}
 	}
 	@for $num from 1 through 6 {
-		.col-tab-#{$num}by7, .col-tab-#{$num}by7r {
+		.col-tab-#{$num}-7, .col-tab-#{$num}-7r {
 			@extend %pcmargin;
 			width: calc(#{(100*$num)/7}% - #{2*$margin_pc_col});
 		}
 	}	
 	@for $num from 1 through 6 {		
-		.col-pc-#{$num}by7, .col-pc-#{$num}by7r {
+		.col-pc-#{$num}-7, .col-pc-#{$num}-7r {
 			@extend %pcmargin;
 			width: calc(#{(100*$num)/7}% - #{2*$margin_pc_col});
 		}
@@ -288,9 +288,6 @@
 
 // flexbox grid
 .flex {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
 	display: flex;
 	align-items: stretch;
 	-webkit-flex-direction: row;

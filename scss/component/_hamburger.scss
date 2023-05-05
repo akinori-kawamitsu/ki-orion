@@ -1,81 +1,192 @@
 @charset "utf-8";
 @import "../_parameter";
 //ボタンのサイズ,枠線の色,および角丸のサイズ
-$burg_size: $header_height;
+$btn_size: 44px;
+$burg_size: 40px;
 $burg_border_color: #66F;
 $burg_border_radius: 5px;
 //ハンバーガーアイコンの線の太さと色
-$burg_line_thick: 6px;
+$burg_line_thick: 4px;
 $burg_line_color: #6DF;
 //タップ後の矢印の方向
 $rotate_deg: 0deg;
-// hamburger icon
-header {
-	min-height: $burg_size;
-	position: relative;
-}
-
-.btn-burg {
-	position: relative;
-	display: block;
-	border: 1px solid $burg_border_color;
-	border-radius: 0px;
-	width: $burg_size;
-	height: $burg_size;
-	border-radius: $burg_border_radius;
+/* ハンバーガーボタン */
+.hamburger {
+	width: $btn_size;
+	height: $btn_size;
+	position: absolute;
+	right: 10px;
+	top: 1px;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	box-shadow: none;
+	border: none;
 	cursor: pointer;
-	transition: transform 0.1s linear;
-	z-index: 1000;
 }
-
-.btn-burg::before {
-	position: absolute;
+.burg-line-tc {
 	display: block;
-	border-top: $burg_line_thick solid $burg_line_color;
-	border-bottom: $burg_line_thick solid $burg_line_color;
-	content: " ";
-	line-height: 0;
-	font-size: 0;
-	width: $burg_size * 0.75;
-	height: 3*$burg_line_thick;
-	top: $burg_line_thick;
-	left: 10%;
-	transition: transform 0.1s linear;
-	transition: width 0.1s linear;
 }
-
-.btn-burg::after {
-	position: absolute;
+.burg-line-tc::before {
+	content: "";
 	display: block;
-	border-top: $burg_line_thick solid $burg_line_color;
-	content: " ";
-	line-height: 0;
-	font-size: 0;
-	width: $burg_size * 0.75;
-	height: $burg_size/2;
-	margin: auto;
-	left: 10%;
-	top: $burg_line_thick*3;
+	background-color: #000;
+	width: $burg_size;
+	height: $burg_line_thick;
+	border-radius: 3px;
+	position: absolute;
+	top: 5px;
+	left: 1px;
 }
-
-.btn-burg.dep-visible {
-	transform: rotate($rotate_deg);
-	transition: transform 0.1s linear;
+.burg-line-tc::after {
+	content: "";
+	display: block;
+	background-color: #000;
+	width: $burg_size;
+	height: $burg_line_thick;
+	border-radius: 3px;
+	position: absolute;
+	top: 15px;
+	left: 1px;
 }
-
-.btn-burg.dep-visible::before {
+.burg-line-b {
+	display: block;
+	background-color: #000;
+	width: $burg_size;
+	height: $burg_line_thick;
+	border-radius: 3px;
+	position: absolute;
+	top: 25px;
+	left: 1px;
+}
+.burg-text {
+	display: block;
+}
+.burg-text::before {
+	content: "menu";
+	position: absolute;
+	top: 27px;
+	left: 4px;
+	font-size: 12px;
+}
+/* ハンバーガーボタン クリック後 */
+.js-open .burg-line-tc::before {
+	transform: rotate(45deg);
+	transform-origin: 50%;
+	width: 32px;
+	top: 15px;
+}
+.js-open .burg-line-tc::after {
 	transform: rotate(-45deg);
-	border-left: $burg_line_thick solid $burg_line_color;
-	border-bottom: none;
-	width: 3*$burg_line_thick;
-	top: $burg_line_thick + ($burg_line_thick/2) ;
-	left: 20%;
-	border-radius: $burg_line_thick/2;
-	transition: transform 0.1s linear;
-	transition: width 0.1s linear;
+	transform-origin: 50%;
+	width: 32px;
+	top: 15px;
+}
+.js-open .burg-line-b {
+	width: 0px;
+}
+.js-open .burg-text::before {
+	content: "close";
 }
 
-.btn-burg.dep-visible::after {
-	width: $burg_size*0.65;
-	left: 20%;
+
+
+
+/* グローバルナビゲーション */
+
+.header-container {
+	position: relative;
+	z-index: 100;
+	height: $btn_size;
+}
+
+.toggle-menu a {
+	display: block;
+	padding: 5px;
+}
+
+@media screen and (max-width: $container + 1px) {
+	
+	.toggle-menu {
+		position: absolute;
+		right: -100%;
+		top: 100%;
+		background-color: #FFF;
+		max-height: calc(100vh - $btn_size);
+		overflow-y: scroll;
+	}
+
+	.js-open .toggle-menu {
+		right: 0%;
+	}
+
+	.header-logo {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		display: inline-block;
+		height: 44px;
+	}
+}
+
+@media screen and (min-width: $container) {
+	.header-container {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		overflow-y: visible;
+	}
+	.hamburger {
+		display: none;
+	}
+	.toggle-menu {
+		position: relative;
+		top: auto;
+		right: auto;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		overflow-y: visible;
+	}
+	.header-logo {
+		position: static;
+		transform: translate(0, 0);
+		-webkit-transform: translate(0, 0);
+		-ms-transform: translate(0, 0);
+	}
+    .toggle-menu {
+        display: flex;
+        position: relative;
+
+		.sub-menu {
+			height: 0;
+			overflow: hidden;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			width: 100%;
+			background-color: #FFF;
+		}
+		:where( .menu-item:hover ) > .sub-menu {
+			height: auto;
+		}
+	}
+    }
+    
+    .page_item {
+        display: inline-block;
+    }
+    .page_item a {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+        color: var(--color-text);
+    }
+    .page_item_has_children {
+        
+    }
+	.gnav {
 }

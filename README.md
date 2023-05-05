@@ -2,9 +2,15 @@
 The WordPress theme template.
 Now developing...
 
-# ver.0.2.0変更点
+# var.0.2.0変更点
 ・Scssのデバッグ、整理。  
 ・フォントのリセット
+
+# var.0.3.0 変更点
++ グリッド指定n/5, n/7 の指定方法変更。col-pc-2-7など分母を最後に。12グリッドは分母を省略。
++ リセットスタイルにnormalize.css v8.0.1採用。
++ グローバルナビスタイル調整
++ home.phpからfront-page.phpに変更。front-page.phpにサブループ追加。
 
 # CSSクラス
 ## グリッド

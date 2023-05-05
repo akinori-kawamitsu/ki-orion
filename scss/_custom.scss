@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import "_parameter";
+
+/* 共通部 */
+body {
+    position: relative;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 1000;
+}
+
+/* ページ送り　pagenation ページネーション */
+
+.pagenation {
+    width: 100%;
+    text-align: center;
+}
+
+.page-numbers {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5em 1em;
+    min-height: 40px;
+    min-width: 40px;
+    line-height: 1;
+    border-radius: 2em;
+    background: linear-gradient(-45deg, #EEE 0%, #F5F5F5 100%);
+    box-shadow: 2px 2px 10px #CCC;
+    margin: 0 4px;
+    border-top: #FFF 1px solid;
+    border-left: #FFF 1px solid;
+}
+
+.page-numbers:hover {
+    border-bottom: none;
+}
+
+.current {
+    background-color: #EEE;
+    box-shadow: none;
+}
+
+/* セクションレイアウト */
+article {
+    margin: 0 auto 40px;
+}
+
+/* トップページ */
+.top-post-title {
+    font-size: 1rem;
+}
+
+.top-post-excerpt {
+    font-size: var(--fs-14);
+}
+
+.no-img {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDD;
+}
+
+.small-img {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    text-align: center;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-img img {
+    width: 100%;
+    height: auto;
+}
+
+/* サイドバーメニュー */
+.snav {
+    .sub-menu {
+        
+    }
+}

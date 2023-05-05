@@ -3,7 +3,8 @@ load_theme_textdomain( 'ki-orion', get_template_directory() . '/languages/' );
 
 // Script and css in head
 function ki_orion_script() {
-	wp_enqueue_style('ki-orion-style', get_stylesheet_uri(), array(), null, 'all');	
+    $mtime = filemtime( get_stylesheet_directory() . '/style.css' );
+	wp_enqueue_style('ki-orion-style', get_stylesheet_uri().'?'.$mtime , array(), null, 'all');
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'kcss', get_template_directory_uri().'/js/kcss.js', array('jquery'), null, false);
 	wp_enqueue_script( 'togglemenu', get_template_directory_uri().'/js/togglemenu.js', array('jquery'), null, false);
@@ -19,12 +20,12 @@ function action_navigation_menu_setup(){
 add_action('after_setup_theme', 'action_navigation_menu_setup');
 
 // Disable serial number at nav menus
-add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
-add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
-add_filter('page_css_class', 'my_css_attributes_filter', 100, 1);
-function my_css_attributes_filter($var) {
-  return is_array($var) ? array() : '';
-}
+// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
+// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
+// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1);
+// function my_css_attributes_filter($var) {
+//   return is_array($var) ? array() : '';
+// }
 
 // Enable widget
 function ki_widgets_init() {
@@ -32,7 +33,7 @@ function ki_widgets_init() {
  'name' => 'sidebar1',
  'id' => 'sidebar1',
  'description' => 'sidebar first menu',
- 'before_title' => '<h3 class="side-itle">',
+ 'before_title' => '<h3 class="side-title">',
  'after_title' => '</h3>'
  ));
  
@@ -40,7 +41,7 @@ function ki_widgets_init() {
  'name' => 'sidebar2',
  'id' => 'sidebar2',
  'description' => 'sidebar second menu',
- 'before_title' => '<h3 class="side-itle">',
+ 'before_title' => '<h3 class="side-title">',
  'after_title' => '</h3>'
  ));
 }
@@ -48,6 +49,7 @@ add_action('widgets_init','ki_widgets_init');
 
 // Enable thumbnail image 
 add_theme_support( 'post-thumbnails' );
+add_image_size( 'small', 400, 300, true );
 
 // Enable editor style
 add_editor_style('editor-style.css');
@@ -158,10 +160,10 @@ function ki_cat_link($cat_slug) {
 /* Breadcrumb navigation */
 function ki_breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcrumb")){
 	global $post;
-	$text_home = esc_html__('home','ki-orion-pack');
-	$text_year = esc_html__('year','ki-orion-pack');
-	$text_month = esc_html__('month','ki-orion-pack');
-	$text_day = esc_html__('day','ki-orion-pack');
+	$text_home = esc_html__('home','ki-orion');
+	$text_year = esc_html__('year','ki-orion');
+	$text_month = esc_html__('month','ki-orion');
+	$text_day = esc_html__('day','ki-orion');
 	
 	$str ='';
 	if(!is_home()&&!is_admin()){
