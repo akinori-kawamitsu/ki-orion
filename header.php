@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
 	<meta charset="<?php bloginfo('charset'); ?>">
-	<meta name="viewport" content="width=device-width, initial-scall=1.0, minimum-scale=0.25, maximum-scale=4.0">
+	<meta name="viewport" content="width=device-width, initial-scall=1.0">
+	<meta name="description" content="<?php if (is_single()||is_page()) {
+		echo wp_strip_all_tags( get_the_excerpt(), true );
+	} elseif (is_category()) {
+		echo wp_strip_all_tags( get_the_archive_description(), true );
+	} elseif (is_tag()) {
+		echo "タグ：". wp_strip_all_tags( single_tag_title(), true );
+	} else {
+		echo wp_strip_all_tags( bloginfo( "description" ), true );
+	}
+	?>">
 	<?php get_template_part('phpmodule/ogp');?>
 	
-	<title><?php wp_title(); ?></title>
+	<title><?php wp_title(); ?> | <?php bloginfo('name');?></title>
 
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' );?>
 <?php wp_head(); ?>
@@ -26,7 +36,7 @@
 	'container'       => 'nav',
 	'container_class' => '',
 	'container_id'    => 'gnav',
-	'fallback_cb'     => 'wp_page_menu',
+	'fallback_cb'     => '',
 	'before'          => '',
 	'after'           => '',
 	'link_before'     => '',

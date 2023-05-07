@@ -2,15 +2,17 @@
 The WordPress theme template.
 Now developing...
 
-# var.0.2.0変更点
-・Scssのデバッグ、整理。  
-・フォントのリセット
+# 必須プラグイン
++ WP Multibyte Patch 
++ Classic Editor
 
-# var.0.3.0 変更点
-+ グリッド指定n/5, n/7 の指定方法変更。col-pc-2-7など分母を最後に。12グリッドは分母を省略。
-+ リセットスタイルにnormalize.css v8.0.1採用。
-+ グローバルナビスタイル調整
-+ home.phpからfront-page.phpに変更。front-page.phpにサブループ追加。
+## 推奨プラグイン
++ All In One WP Security
++ Font Awesome
++ XML Sitemap Generator for Google
+
+## 非推奨プラグイン
++ All in One SEO（ogタグなどが重複する。プラグイン自体のアップデート時のトラブルや破壊的アップデートが多いため推奨できない）
 
 # CSSクラス
 ## グリッド
@@ -59,3 +61,25 @@ alignleft, arignrightで画像に回り込みを設定した場合、画像が�
 768px以下で回り込みを解除したい場合は、br-tab　のクラスを画像に設置する。  
 また、576px以下でも回り込みを解除したくない場合は、br-no を画像に設置する。  
 
+# 変更履歴
+## var.0.2.0
+・Scssのデバッグ、整理。  
+・フォントのリセット
+
+## var.0.3.0
++ グリッド指定n/5, n/7 の指定方法変更。col-pc-2-7など分母を最後に。12グリッドは分母を省略。
++ リセットスタイルにnormalize.css v8.0.1採用。
++ グローバルナビスタイル調整
++ home.phpからfront-page.phpに変更。front-page.phpにサブループ追加。
+
+## var 0.4.1
++ footerの整備。管理画面で設定できるメニューの追加。
++ メニューのfallbackをwp_page_menuから空白に変更
++ Font-awesome Freeのアイコン（ウェブフォント）を導入。（font-family: "fa";）
++ target="_blank"のリンクに外部リンクのアイコンを追加。
++ カスタムヘッダーを有効化。1920x500px。状況次第でサイズは変更する。
++ 固定ページ（page.php）にアイキャッチ画像をキービジュアルとして表示する設定。
++ 固定ページ　抜粋を有効化
++ トップページ、固定ページ、投稿ページ2カラム構成に。
++ archive.php、index.php調整
++ ウェブフォントNoto Sans標準ウエイト変更。normal:Light, bold: Medium

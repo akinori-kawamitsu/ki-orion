@@ -15,17 +15,12 @@ add_action('wp_enqueue_scripts','ki_orion_script');
 function action_navigation_menu_setup(){
 	register_nav_menus( array('gnav' => 'Header navigation' ,
 							  'snav' => 'Sub navigation',
-							  'fnav' => 'Footer navigation'));
+							  'fnav' => 'Footer navigation',
+							  'fnav2' => 'Footer navigation2',
+							  'fnav3' => 'Footer navigation3',
+							));
 }
 add_action('after_setup_theme', 'action_navigation_menu_setup');
-
-// Disable serial number at nav menus
-// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
-// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
-// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1);
-// function my_css_attributes_filter($var) {
-//   return is_array($var) ? array() : '';
-// }
 
 // Enable widget
 function ki_widgets_init() {
@@ -51,6 +46,12 @@ add_action('widgets_init','ki_widgets_init');
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'small', 400, 300, true );
 
+// 固定ページに抜粋を表示
+add_post_type_support( 'page', 'excerpt' );
+
+// wp_head()からtitleタグの出力を削除
+remove_action('wp_head', '_wp_render_title_tag', 1);
+
 // Enable editor style
 add_editor_style('editor-style.css');
 
@@ -63,12 +64,12 @@ add_theme_support( 'automatic-feed-links' );
 // Enable using html5 at forms
 add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
-/* Enable custom header
-add_theme_support(array(
+/* Enable custom header　*/
+add_theme_support('custom-header', array(
 	'default-image'			=> '',
 	'random-default'		=> false,
 	'width'					=> 1920,
-	'height'				=> 500,
+	'height'				=> 980,
 	'flex-height'			=> true,
 	'flex-width'			=> true,
 	'default-text-color'	=> '',
@@ -78,8 +79,6 @@ add_theme_support(array(
 	'admin-head-callback'	=> '',
 	'admin-preview-callback'=> '',
 ));
-add_theme_support( 'custom-header', $defaults );
-*/
 
 // Setting content width
 if ( ! isset( $content_width ) ) $content_width = 600;

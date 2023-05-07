@@ -51,6 +51,7 @@ pre {
   /* 1 */
   font-size: 1em;
   /* 2 */
+  line-height: 1.2;
 }
 
 /* Text-level semantics
@@ -325,12 +326,12 @@ template {
 /* Noto Sans */
 @font-face {
   font-family: "noto-sans";
-  src: url(./font/Noto_Sans_Subset/NotoSansJP-Regular-Subset.woff2) format("woff2");
+  src: url(./font/Noto_Sans_Subset/NotoSansJP-Light-Subset.woff2) format("woff2");
   font-weight: normal;
 }
 @font-face {
   font-family: "noto-sans";
-  src: url(./font/Noto_Sans_Subset/NotoSansJP-Bold-Subset.woff2) format("woff2");
+  src: url(./font/Noto_Sans_Subset/NotoSansJP-Medium-Subset.woff2) format("woff2");
   font-weight: bold;
 }
 /* Noto Serif */
@@ -358,6 +359,17 @@ template {
 @font-face {
   font-family: "zen-mincho";
   src: url(./font/ZenOld_Mincho_Subset/ZenOldMincho-B-subset.woff2) format("woff2");
+  font-weight: bold;
+}
+/* Font awesome */
+@font-face {
+  font-family: "fa";
+  src: url(./font/fa-regular-400.woff2) format("woff2");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "fa";
+  src: url(./font/fa-solid-900.woff2) format("woff2");
   font-weight: bold;
 }
 /* CSS変数設定 */
@@ -392,6 +404,7 @@ template {
   --dark-main: hsl(105,60%,65%);
   --dark-accent: hsl(15,100%,80%);
   --dark-strong: hsl(350,100%,80%);
+  --box-shadow: 1px 1px 8px hsl(0, 0%, 50%);
 }
 
 /* style base */
@@ -448,11 +461,11 @@ p {
   padding: 0;
 }
 
-a:link, a:visited {
+:where(a):link, :where(a):visited {
   color: #00D;
   text-decoration: none;
 }
-a:hover, a:active {
+:where(a):hover, :where(a):active {
   opacity: 0.85;
   -ms-filter: "alpha(opacity=85)";
   border-bottom: 1px dashed;
@@ -465,20 +478,35 @@ img {
   padding-top: 0.3em;
 }
 
+address {
+  font-style: normal;
+}
+
 .aligncenter {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px;
   text-align: center;
 }
 
 .alignleft {
   float: left;
-  margin: 0 5px 0 0;
+  margin: 0 5px 10px 0;
 }
 
 .alignright {
   float: right;
-  margin: 0 0 0 5px;
+  margin: 0 0 10px 5px;
+}
+
+a[target=_blank]::after {
+  font-family: "fa";
+  content: "\f35d";
+  font-weight: 900;
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.3em;
+  color: inherit;
 }
 
 @media screen and (min-width: 577px) {

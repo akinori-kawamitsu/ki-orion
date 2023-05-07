@@ -4,14 +4,19 @@
 /* Noto Sans */
 @font-face {
     font-family: "noto-sans";
-    src: url(./font/Noto_Sans_Subset/NotoSansJP-Regular-Subset.woff2) format("woff2");
+    src: url(./font/Noto_Sans_Subset/NotoSansJP-Light-Subset.woff2) format("woff2");
     font-weight: normal;
 }
 @font-face {
     font-family: "noto-sans";
-    src: url(./font/Noto_Sans_Subset/NotoSansJP-Bold-Subset.woff2) format("woff2");
+    src: url(./font/Noto_Sans_Subset/NotoSansJP-Medium-Subset.woff2) format("woff2");
     font-weight: bold;
 }
+// @font-face {
+//     font-family: "noto-sans";
+//     src: url(./font/Noto_Sans_Subset/NotoSansJP-Bold-Subset.woff2) format("woff2");
+//     font-weight: bold;
+// }
 /* Noto Serif */
 @font-face {
     font-family: "noto-serif";
@@ -37,6 +42,17 @@
 @font-face {
     font-family: "zen-mincho";
     src: url(./font/ZenOld_Mincho_Subset/ZenOldMincho-B-subset.woff2) format("woff2");
+    font-weight: bold;
+}
+/* Font awesome */
+@font-face {
+    font-family: "fa";
+    src: url(./font/fa-regular-400.woff2) format("woff2");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "fa";
+    src: url(./font/fa-solid-900.woff2) format("woff2");
     font-weight: bold;
 }
 /* CSS変数設定 */
@@ -73,6 +89,8 @@
     --dark-main: hsl(105,60%,65%);
     --dark-accent: hsl(15,100%,80%);
     --dark-strong: hsl(350,100%,80%);
+
+	--box-shadow: 1px 1px 8px hsl(0, 0%, 50%);
 }
 /* style base */
 section {
@@ -125,7 +143,7 @@ p {
 	padding: 0;
 }
 
-a {
+:where(a) {
 	&:link, &:visited{
 		color: $color_link;
 		text-decoration: none;
@@ -144,23 +162,35 @@ img {
 	padding-top: (($line_height - 1)/2) + em;
 }
 
+address {
+	font-style: normal;
+}
+
 .aligncenter {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 10px;
 	text-align: center;
 }
 
 .alignleft {
 	float: left;
-	margin: 0 $margin_sp_col 0 0;
+	margin: 0 $margin_sp_col 10px 0;
 }
 
 .alignright {
 	float: right;
-	margin: 0 0 0 $margin_sp_col;
+	margin: 0 0 10px $margin_sp_col;
 }
-
-
+a[target="_blank"]::after {
+	font-family: "fa";
+	content: "\f35d";
+	font-weight: 900;
+	display: inline-block;
+	width: 0.9em;
+	height: 0.9em;
+	margin-left: 0.3em;
+	color: inherit;
+}
 @media screen and (min-width:$tab) {
 	img.alignleft, img.alignright {
 		max-width: 50%;

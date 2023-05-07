@@ -1,6 +1,7 @@
 <?php get_header(); ?>
+		<div class="top-kv"><img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" /></div>
+<div class="content-wrapper">
 	<main id="main" class="top-main" role="main">
-		<div class="top-kv"></div>
 		<article class="top-contents container">
 			<?php if (have_posts()): 
 				while (have_posts()): the_post();?>
@@ -24,14 +25,15 @@
 				<h2 class="col-12">未分類</h2>
 				<?php if ( $child_query1 -> have_posts()): 
 					while ( $child_query1 -> have_posts()): $child_query1 -> the_post();?>
-					<section class="col-3 top-posts">
+					<section class="col-3 top-posts card">
 						<?php if (has_post_thumbnail()):?>
 						<a href="<?php the_permalink() ;?>" class="small-img"><?php the_post_thumbnail( 'small' ); ?></a>
 						<?php else: ?>
 						<a href="<?php the_permalink() ;?>" class="no-img">No image</a>
 						<?php endif;?>
-						<h2 class="top-post-title"><a href="<?php the_permalink() ;?>"><?php echo mb_substr( $post->post_title, 0, 20) . '...';?></a></h2>
-						<div class="top-post-excerpt"><?php echo mb_substr( get_the_excerpt(), 0, 50 ) . '[...]';?></div>
+						<h2 class="card-post-title"><a href="<?php the_permalink() ;?>"><?php echo mb_substr( $post->post_title, 0, 20) . '...';?></a></h2>
+						<div class="card-post-excerpt"><?php echo mb_substr( get_the_excerpt(), 0, 50 ) . '[...]';?></div>
+						<div class="card-more" aria-role="button"><a href="<?php the_permalink() ;?>" class="card-more-btn">詳しく</a></div>
 					</section>
 					<?php endwhile; ?>
 							<?php echo paginate_links( array(
@@ -59,5 +61,5 @@
 	</main>
 
 <?php get_sidebar();?>
-
+</div>
 <?php get_footer(); ?>

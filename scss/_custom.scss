@@ -4,6 +4,29 @@
 /* 共通部 */
 body {
     position: relative;
+    font-family: var(--font-sanserif);
+    font-weight: normal;
+    word-wrap: break-word;
+}
+
+pre, .pre {
+    font-family: var(--font-mono);
+    line-height: 1.2;
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+code, .code {
+    background-color: #DDD;
+    font-family: var(--font-mono);
+    padding: 0 0.5em;
+}
+kbd {
+    display: inline-block;
+    padding: 0px 5px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px #9999;
 }
 
 .header {
@@ -12,6 +35,13 @@ body {
     background-color: #FFF;
     z-index: 1000;
 }
+
+.footer {
+    padding-top: 40px;
+    margin-top: 40px;
+    background-color: #EEE;
+}
+
 
 /* ページ送り　pagenation ページネーション */
 
@@ -45,18 +75,21 @@ body {
     box-shadow: none;
 }
 
-/* セクションレイアウト */
-article {
-    margin: 0 auto 40px;
+/* カードレイアウト */
+.card {
+    position: relative;
+    padding: 0 0 60px 0;
+    box-shadow: var(--box-shadow);
 }
 
-/* トップページ */
-.top-post-title {
+.card-post-title {
     font-size: 1rem;
+    margin: 10px;
 }
 
-.top-post-excerpt {
+.card-post-excerpt {
     font-size: var(--fs-14);
+    margin: 10px;
 }
 
 .no-img {
@@ -83,9 +116,90 @@ article {
     height: auto;
 }
 
-/* サイドバーメニュー */
-.snav {
-    .sub-menu {
+.card-more {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 0;
+    text-align: center;
+}
+
+.card-more-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+    padding: 0.75em;
+    min-width: 8em;
+    background-color: var(--color-theme);
+    color: #FFF;
+    &:hover {
         
     }
 }
+
+/* セクションレイアウト */
+article {
+    margin: 0 auto 40px;
+}
+
+/* 2カラム構成の設定 */
+.content-wrapper {
+    max-width: 980px;
+    padding: 0 10px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.sidebar {
+    width: 240px;
+    padding: 0 0 0 40px;
+}
+.main,
+.top-main {
+    width: calc(100% - 240px);
+}
+
+@media screen and (max-width: 960px) {
+    .sidebar {
+        width: 100%;
+        padding: 0;
+    }
+    .main,
+    .top-main {
+        width: 100%;
+    }
+}
+
+/* --2カラム構成の設定 ここまで-- */
+
+/* トップページ */
+.top-kv {
+    width: 100%;
+}
+.top-kv img {
+    width: 100%;
+}
+
+/* サイドバーメニュー */
+.side-nav ul {
+    padding-left: 0.5em;
+}
+
+/* 固定ページ */
+.page-kv {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* archiveページ */
