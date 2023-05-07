@@ -1,6 +1,5 @@
 # ki-orion
-The WordPress theme template.
-Now developing...
+WordPressの汎用ベーステンプレート
 
 # 必須プラグイン
 + WP Multibyte Patch 
@@ -83,3 +82,9 @@ alignleft, arignrightで画像に回り込みを設定した場合、画像が�
 + トップページ、固定ページ、投稿ページ2カラム構成に。
 + archive.php、index.php調整
 + ウェブフォントNoto Sans標準ウエイト変更。normal:Light, bold: Medium
+
+## var 1.0
++ 小ページを持つ固定ページでは、小ページも続けて表示する機能を追加。
++ 見出しレベル修正
++ 一覧見出し・抜粋にHTMLタグがあると崩れるバグの解消
++ トップページ、リスト形式の一覧デザイン追加

@@ -10,10 +10,10 @@
 <main id="main" class="main" role="main">
 
 	<div class="container">
-		<?php the_title('<h2 class="post-title">','</h2>');?>
+	<h1 class="post-title"><?php echo get_the_title();?></h1>
 		<div <?php post_class();?>><?php the_content() ;?></div>
-		</div>
 		<?php comments_template(); ?>
+		</div>
 	</main>
 	<?php get_sidebar();?>
 </div>

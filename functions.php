@@ -83,6 +83,12 @@ add_theme_support('custom-header', array(
 // Setting content width
 if ( ! isset( $content_width ) ) $content_width = 600;
 
+// 抜粋の長さの変更
+function ki_excerpt_length($length) {
+	return 80;
+}
+add_filter( 'excerpt_length', 'ki_excerpt_length', 999 );
+
 //　The list of categories
 function ki_catlist() {
 	$kiexcat = get_category_by_slug('top') -> term_id;

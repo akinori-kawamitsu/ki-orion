@@ -5,7 +5,7 @@ Theme URI: https://github.com/akinori-kawamitsu/ki-orion
 Author: akinori kawamitsu
 Author URI: http://komitsuboshi.com
 Description: 
-Version: 0.3.0
+Version: 1.0
 License: MIT License
 License URI: https://opensource.org/licenses/MIT
 Text Domain: ki-orion
@@ -405,6 +405,7 @@ template {
   --font-mono: Consolas, "Courier New", Courier, Monaco, Osaka-mono, "MS Gothic", monospace;
   --color-base: #FFF;
   --color-text: #000;
+  --color-text-reverse: #FFF;
   --color-theme: hsl(240,100%,37%);
   --color-main: hsl(105,100%,20%);
   --color-accent: hsl(15,100%,40%);
@@ -479,7 +480,6 @@ p {
 :where(a):hover, :where(a):active {
   opacity: 0.85;
   -ms-filter: "alpha(opacity=85)";
-  border-bottom: 1px dashed;
 }
 
 img {
@@ -1889,6 +1889,28 @@ kbd {
   background-color: #EEE;
 }
 
+/* ボタン */
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  color: var(--color-text);
+}
+
+.button-link-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-accent);
+  color: var(--color-text-reverse);
+}
+
 /* ページ送り　pagenation ページネーション */
 .pagenation {
   width: 100%;
@@ -1974,11 +1996,14 @@ kbd {
   justify-content: center;
   align-items: center;
   line-height: 1.2;
-  padding: 0.75em;
+  padding: 0.5em 0.75em;
   min-width: 8em;
+  border-radius: 2px;
   background-color: var(--color-theme);
-  color: #FFF;
+  color: var(--color-text-reverse);
+  box-shadow: var(--box-shadow);
 }
+
 /* セクションレイアウト */
 article {
   margin: 0 auto 40px;
@@ -2022,6 +2047,33 @@ article {
 
 .top-kv img {
   width: 100%;
+}
+
+/* お知らせ　コーナー */
+.post-list-item {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.post-list-img {
+  max-height: 150px;
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.post-list-heading {
+  font-size: var(--fs-16);
+  margin: 0;
+}
+
+.post-date {
+  font-weight: normal;
+}
+
+.post-list-excerpt {
+  padding-left: 1em;
 }
 
 /* サイドバーメニュー */

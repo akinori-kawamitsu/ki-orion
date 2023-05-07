@@ -42,7 +42,29 @@ kbd {
     background-color: #EEE;
 }
 
-
+/* ボタン */
+.button {
+    
+}
+.button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    color: var(--color-text);
+}
+.button-link-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-accent);
+    color: var(--color-text-reverse);
+}
 /* ページ送り　pagenation ページネーション */
 
 .pagenation {
@@ -129,13 +151,13 @@ kbd {
     justify-content: center;
     align-items: center;
     line-height: 1.2;
-    padding: 0.75em;
+    padding: 0.5em 0.75em;
     min-width: 8em;
+    border-radius: 2px;
     background-color: var(--color-theme);
-    color: #FFF;
-    &:hover {
-        
-    }
+    color: var(--color-text-reverse);
+    box-shadow: var(--box-shadow);
+    
 }
 
 /* セクションレイアウト */
@@ -180,6 +202,38 @@ article {
 }
 .top-kv img {
     width: 100%;
+}
+
+/* お知らせ　コーナー */
+.post-list {
+
+}
+.post-list-item {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+    align-items: flex-start;
+}
+.post-list-img {
+    max-height: 150px;
+    max-width: 150px;
+    overflow: hidden;
+}
+.post-list-info {
+
+}
+.post-list-title {
+
+}
+.post-list-heading {
+    font-size: var(--fs-16);
+    margin: 0;
+}
+.post-date {
+    font-weight: normal;
+}
+.post-list-excerpt {
+    padding-left: 1em;
 }
 
 /* サイドバーメニュー */

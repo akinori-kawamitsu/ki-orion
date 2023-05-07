@@ -79,6 +79,7 @@
     
     --color-base: #FFF;
     --color-text: #000;
+	--color-text-reverse: #FFF;
     --color-theme: hsl(240,100%,37%);
     --color-main: hsl(105,100%,20%);
     --color-accent: hsl(15,100%,40%);
@@ -151,7 +152,6 @@ p {
 	&:hover, &:active {
 		opacity: $a_opacity;
 		-ms-filter: "#{$a_filter}";
-		border-bottom: 1px dashed;
 	}
 }
 

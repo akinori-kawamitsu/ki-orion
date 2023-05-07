@@ -394,6 +394,7 @@ template {
   --font-mono: Consolas, "Courier New", Courier, Monaco, Osaka-mono, "MS Gothic", monospace;
   --color-base: #FFF;
   --color-text: #000;
+  --color-text-reverse: #FFF;
   --color-theme: hsl(240,100%,37%);
   --color-main: hsl(105,100%,20%);
   --color-accent: hsl(15,100%,40%);
@@ -468,7 +469,6 @@ p {
 :where(a):hover, :where(a):active {
   opacity: 0.85;
   -ms-filter: "alpha(opacity=85)";
-  border-bottom: 1px dashed;
 }
 
 img {
