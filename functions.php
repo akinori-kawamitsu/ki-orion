@@ -149,11 +149,7 @@ function ki_page_content($pageslug) {
 
 // Call page link by slug.
 function ki_page_link($page_slug) {
-	$kipage_query = new WP_Query(array('pagename' => $page_slug ));
-	if ($kipage_query -> have_posts()):  $kipage_query -> the_post();
-			the_permalink();
-		endif;
-	wp_reset_postdata();
+	echo get_permalink( get_page_by_path( $page_slug ) );
 }
 
 // Call category archive link by category slug.
